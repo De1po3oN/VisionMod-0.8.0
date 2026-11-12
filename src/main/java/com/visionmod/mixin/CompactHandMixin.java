@@ -10,7 +10,7 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.ShieldItem;
-import net.minecraft.world.item.SwordItem;
+import net.minecraft.tags.ItemTags;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -21,7 +21,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public abstract class CompactHandMixin {
     private static boolean shouldShrink(ItemStack stack) {
         if (!VisionModClient.enabled || stack.isEmpty()) return false;
-        if (VisionExtras.smallSword && stack.getItem() instanceof SwordItem) return true;
+        if (VisionExtras.smallSword && stack.is(ItemTags.SWORDS)) return true;
         if (VisionExtras.smallShield && stack.getItem() instanceof ShieldItem) return true;
         return VisionExtras.smallTotem && stack.is(Items.TOTEM_OF_UNDYING);
     }

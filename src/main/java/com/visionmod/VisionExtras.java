@@ -11,6 +11,7 @@ import net.minecraft.core.component.DataComponents;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.component.ItemContainerContents;
 import net.minecraft.world.level.block.ShulkerBoxBlock;
 
@@ -50,6 +51,11 @@ public final class VisionExtras {
 
     private static final Path FILE = FabricLoader.getInstance().getConfigDir()
         .resolve("visionmod/extras.properties");
+    // Static array: avoid allocating an array every time the HUD renders.
+    private static final EquipmentSlot[] ARMOR_SLOTS = {
+        EquipmentSlot.HEAD, EquipmentSlot.CHEST,
+        EquipmentSlot.LEGS, EquipmentSlot.FEET
+    };
     private static final Deque<Long> CLICKS = new ArrayDeque<>();
     private static final Random RANDOM = new Random();
     private static int tick;
@@ -119,7 +125,8 @@ public final class VisionExtras {
             }
             if (armorHud) {
                 int pieces = 0, worn = 0, total = 0;
-                for (ItemStack stack : mc.player.getArmorSlots()) {
+                for (EquipmentSlot slot : ARMOR_SLOTS) {
+                    ItemStack stack = mc.player.getItemBySlot(slot);
                     if (!stack.isEmpty()) {
                         pieces++;
                         if (stack.isDamageableItem()) {

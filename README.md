@@ -1,6 +1,12 @@
-# Vision Mod 0.8.2 — 51 hotkeys and adaptive performance
+# Vision Mod 0.8.3 — 51 hotkeys and adaptive performance
 
 **Status:** исходники, не подтверждённая сборка и не проверенный релиз. Требуется Minecraft Java 1.21.11, Fabric Loader 0.19.3+, Fabric API 0.141.6+1.21.11 и Java 21.
+
+## Исправления 0.8.3
+- Исправлена компиляция `CompactHandMixin.java` на Minecraft 1.21.11: вместо удалённого `SwordItem` используется `ItemTags.SWORDS`.
+- Исправлена компиляция Armor HUD: вместо `getArmorSlots()` используются `getItemBySlot(EquipmentSlot)` для четырёх слотов брони.
+- Не меняет меню и 51 назначаемую команду версии 0.8.2.
+- Полная Gradle-сборка и тест запуска пока НЕ подтверждены. Требуется GitHub Actions.
 
 ## Изменения 0.8.2
 

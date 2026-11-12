@@ -1,5 +1,5 @@
 plugins { id 'fabric-loom' version '1.14.10'; id 'maven-publish' }
-version = '0.8.2'
+version = '0.8.3'
 group = 'com.visionmod'
 base { archivesName = 'visionmod' }
 repositories { mavenCentral() }

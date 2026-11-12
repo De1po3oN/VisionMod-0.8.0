@@ -284,7 +284,7 @@ public final class VisionHotkeys {
                 properties.setProperty("binding." + i, Integer.toString(bindings[i]));
             }
             try (OutputStream output = Files.newOutputStream(FILE)) {
-                properties.store(output, "Vision Mod 0.8.2 - MMB to bind a module");
+                properties.store(output, "Vision Mod 0.8.3 - MMB to bind a module");
             }
         } catch (Exception ex) {
             System.err.println("[VisionMod] Could not save hotkeys: " + ex);

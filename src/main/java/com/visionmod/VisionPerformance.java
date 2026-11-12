@@ -185,7 +185,7 @@ public final class VisionPerformance {
             p.setProperty("particleFilter", Boolean.toString(VisionModClient.particles));
             p.setProperty("hideAllParticles", Boolean.toString(VisionModClient.hideAllParticles));
             try (OutputStream out = Files.newOutputStream(FILE)) {
-                p.store(out, "Vision Mod local performance settings - 0.8.2");
+                p.store(out, "Vision Mod local performance settings - 0.8.3");
             }
         } catch (Exception e) {
             System.err.println("[VisionMod] Cannot save performance settings: " + e);
